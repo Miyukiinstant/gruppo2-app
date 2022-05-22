@@ -19,6 +19,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './components/admin/admin.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { AppartamentiComponent } from './components/tables/appartamenti/appartamenti.component';
+import { AmministratoreComponent } from './components/tables/amministratore/amministratore.component';
+import { ContrattoComponent } from './components/tables/contratto/contratto.component';
+import { PalazzoComponent } from './components/tables/palazzo/palazzo.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 @NgModule({
@@ -26,7 +35,11 @@ import {MatTabsModule} from '@angular/material/tabs';
     AppComponent,
     routeComponents,
     GroupComponent,
-    AdminComponent
+    AdminComponent,
+    AppartamentiComponent,
+    AmministratoreComponent,
+    ContrattoComponent,
+    PalazzoComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +55,14 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatInputModule,
     FormsModule,
     HttpClientModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    MatSelectModule
   ],
-  providers: [],
+  providers: [
+    {provide:MAT_DATE_LOCALE,useValue:"it-IT"}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

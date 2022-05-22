@@ -11,6 +11,7 @@ export class GroupComponent implements OnInit {
   constructor(private router:Router) { }
 
   routes: any
+
   ngOnInit(): void {
     this.routes=this.router.config
   }

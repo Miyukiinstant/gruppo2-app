@@ -1,8 +1,8 @@
 
-<mat-drawer-container>
-    <mat-drawer #drawer mode="side">
+<mat-drawer-container hasBackdrop="true">
+    <mat-drawer #drawer mode="over">
         <p *ngFor="let route of routes">
-            <button  (click)="drawer.toggle()" [routerLink]="route.path" mat-button>{{route.data.title}}</button>
+            <button class="drawerButton" (click)="drawer.toggle()" [routerLink]="route.path" mat-raised-button>{{route.data.title}}</button>
         </p>
     </mat-drawer>
     <mat-drawer-content>
@@ -10,8 +10,8 @@
             <button (click)="drawer.toggle()" mat-icon-button>
                 <mat-icon>menu</mat-icon>
             </button>
-            <span>My App</span>
+            <span>Gruppo 2</span>
         </mat-toolbar>
-        <router-outlet></router-outlet>
+        <router-outlet #router></router-outlet>
     </mat-drawer-content>
 </mat-drawer-container>

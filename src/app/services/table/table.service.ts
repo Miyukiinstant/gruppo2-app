@@ -10,7 +10,7 @@ import { Urls } from 'src/app/interfaces/urls';
 @Injectable({
   providedIn: 'root'
 })
-export class TableService {
+export class TableServiceGet {
 
   constructor(private http:HttpClient) { }
 

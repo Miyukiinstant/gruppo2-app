@@ -19,6 +19,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.admin.rescueLogin().subscribe(login=>{
+      this.hideForm = login.login
+    })
   }
 
 }

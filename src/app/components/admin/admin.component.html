@@ -1,1 +1,134 @@
-<p>admin works!</p>
+<p>
+    <mat-card>
+        <mat-card-title>Palazzo</mat-card-title>
+        <mat-card-content>
+            <form enctype="multipart/form-data" #palazzo="ngForm" (ngSubmit)="postTable(palazzo)">
+                <mat-form-field appearance="fill">
+                  <mat-label>N Palazzo</mat-label>
+                  <input ngModel="" name="n_palazzo" matInput required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Piano</mat-label>
+                  <input ngModel="" name="piano" matInput required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>N Appartamenti</mat-label>
+                  <input ngModel="" name="n_appartamenti" matInput required>
+                </mat-form-field>
+                <p>
+                    <button mat-raised-button type="submit">Invio</button>
+                </p>
+            </form>
+        </mat-card-content>    
+    </mat-card>
+</p>
+<p>
+    <mat-card>
+        <mat-card-title>Appartamento</mat-card-title>
+        <mat-card-content>
+            <form enctype="multipart/form-data" #appartamento="ngForm" (ngSubmit)="postTable(appartamento)">
+                <mat-form-field appearance="fill">
+                  <mat-label>Codice Palazzo</mat-label>
+                  <mat-select ngModel="" name="codice_palazzo">
+                    <mat-option *ngFor="let codice of codice_palazzo" [value]="codice">
+                      {{codice}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Codice Appartamento</mat-label>
+                  <input ngModel="" type="number" name="codice_appartamento" matInput required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Nome</mat-label>
+                  <input ngModel="" name="nome" matInput required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Cognome</mat-label>
+                  <input ngModel="" name="cognome" matInput required>
+                </mat-form-field>
+                <p>
+                    <button mat-raised-button type="submit">Invio</button>
+                </p>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</p>
+
+<p>
+    <mat-card>
+        <mat-card-title>Amministratore</mat-card-title>
+        <mat-card-content>
+            <form enctype="multipart/form-data" #amminstratore="ngForm" (ngSubmit)="postTable(amminstratore)">
+                <mat-form-field appearance="fill">
+                  <mat-label>Codice Fiscale</mat-label>
+                  <input ngModel="" name="CF" matInput required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Codice Appartamento</mat-label>
+                  <mat-select ngModel="" name="codice_appartamento">
+                    <mat-option *ngFor="let codice of codice_appartamento" [value]="codice">
+                      {{codice}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Nome</mat-label>
+                  <input ngModel="" name="nome" matInput required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Cognome</mat-label>
+                  <input ngModel="" name="cognome" matInput required>
+                </mat-form-field>
+                <p>
+                    <button mat-raised-button type="submit">Invio</button>
+                </p>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</p>
+
+<p>
+    <mat-card>
+        <mat-card-title>Contratto</mat-card-title>
+        
+        <mat-card-content>
+            <form enctype="multipart/form-data" #contratto="ngForm" (ngSubmit)="postTable(contratto)">
+                <mat-form-field appearance="fill">
+                  <mat-label>Codice Fiscale</mat-label>
+                  <input ngModel="" name="CF" matInput required>
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+                  <mat-label>Codice Appartamento</mat-label>
+                  <mat-select ngModel="" name="codice_appartamento">
+                    <mat-option *ngFor="let codice of codice_appartamento" [value]="codice">
+                      {{codice}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Costo</mat-label>
+                  <input ngModel="" name="costo" matInput required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Data Soggiorno</mat-label>
+                  <input matInput [matDatepicker]="picker">
+                  <mat-hint>DD/MM/YYYY</mat-hint>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>N Persone</mat-label>
+                  <input ngModel="" name="n_persone" matInput required>
+                </mat-form-field>
+                <p>
+                    <button mat-raised-button type="submit">Invio</button>
+                </p>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</p>
+
+

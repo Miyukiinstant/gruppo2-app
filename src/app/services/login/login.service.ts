@@ -11,6 +11,9 @@ import { Urls } from 'src/app/interfaces/urls';
 export class LoginService {
 
   constructor(private http: HttpClient) { }
+  rescueLogin(): Observable<Login>{
+    return this.http.post<Login>(new Urls().urls.login,{password:"cookie"})
+  }
   getLogin(form:NgForm): Observable<Login>{
     return this.http.post<Login>(new Urls().urls.login,
     form.value)

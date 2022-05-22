@@ -1,7 +1,7 @@
-<mat-card>
-    <mat-card-title>Login</mat-card-title>
+<mat-card *ngIf="!hideForm">
+    <mat-card-title >Login</mat-card-title>
     <mat-card-content>
-        <form *ngIf="!hideForm" enctype="multipart/form-data" #userLogin="ngForm" (ngSubmit)="login(userLogin)">
+        <form enctype="multipart/form-data" #userLogin="ngForm" (ngSubmit)="login(userLogin)">
             <mat-form-field appearance="fill">
                 <mat-label>Password</mat-label>
                 <input ngModel="" name="password" type="password" matInput required="true">
@@ -12,4 +12,6 @@
         </form>
         
     </mat-card-content>
+    
 </mat-card>
+<app-admin *ngIf="hideForm"></app-admin>

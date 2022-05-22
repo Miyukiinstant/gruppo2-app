@@ -1,0 +1,17 @@
+
+<mat-drawer-container>
+    <mat-drawer #drawer mode="side">
+        <p *ngFor="let route of routes">
+            <button  (click)="drawer.toggle()" [routerLink]="route.path" mat-button>{{route.data.title}}</button>
+        </p>
+    </mat-drawer>
+    <mat-drawer-content>
+        <mat-toolbar color="primary">
+            <button (click)="drawer.toggle()" mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>My App</span>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

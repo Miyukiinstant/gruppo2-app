@@ -15,6 +15,7 @@ export class AdminComponent implements OnInit {
   constructor(private post:TableService, private tableApp:TableServiceGet) { }
 
   postTable(form:NgForm):void {
+      console.log(form.value)
       this.post.postForm(form).subscribe(value=>{
         console.log(value)
       })    

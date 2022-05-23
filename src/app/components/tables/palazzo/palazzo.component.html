@@ -19,6 +19,10 @@
                     <th mat-header-cell *matHeaderCellDef>N Appartamenti</th>
                     <td mat-cell *matCellDef="let element"> {{element.n_appartamenti}} </td>
                 </ng-container>
+                <ng-container matColumnDef="indirizzo">
+                    <th mat-header-cell *matHeaderCellDef>Indirizzo</th>
+                    <td mat-cell *matCellDef="let element"> {{element.indirizzo}} </td>
+                </ng-container>
                 <tr mat-header-row *matHeaderRowDef="colonne_palazzo"></tr>
                 <tr mat-row *matRowDef="let row; columns: colonne_palazzo;"></tr>
             </table>

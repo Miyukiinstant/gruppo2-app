@@ -9,7 +9,7 @@ import { TableServiceGet } from 'src/app/services/table/table.service';
 export class PalazzoComponent implements OnInit {
 
   constructor(private tables:TableServiceGet) { }
-  colonne_palazzo: string[] = ['codice_palazzo','n_palazzo', 'piano', 'n_appartamenti']
+  colonne_palazzo: string[] = ['codice_palazzo','n_palazzo', 'piano', 'n_appartamenti', 'indirizzo']
   palazzo: any
   ngOnInit(): void {
     this.tables.getPalazzo().subscribe(palazzo=>{

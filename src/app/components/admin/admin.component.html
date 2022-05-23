@@ -5,15 +5,20 @@
             <form enctype="multipart/form-data" #palazzo="ngForm" (ngSubmit)="postTable(palazzo)">
                 <mat-form-field appearance="fill">
                   <mat-label>N Palazzo</mat-label>
-                  <input ngModel="" name="n_palazzo" matInput required>
+                  <input ngModel="" type="number" name="n_palazzo" matInput required>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Piano</mat-label>
-                  <input ngModel="" name="piano" matInput required>
+                  <input ngModel="" type="number" name="piano" matInput required>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>N Appartamenti</mat-label>
-                  <input ngModel="" name="n_appartamenti" matInput required>
+                  <input ngModel="" type="number" name="n_appartamenti" matInput required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Indirizzo</mat-label>
+                  <input ngModel="" name="indirizzo" matInput required>
+                  <input ngModel="true" name="palazzo" hidden>
                 </mat-form-field>
                 <p>
                     <button mat-raised-button type="submit">Invio</button>
@@ -40,12 +45,21 @@
                   <input ngModel="" type="number" name="codice_appartamento" matInput required>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
-                  <mat-label>Nome</mat-label>
-                  <input ngModel="" name="nome" matInput required>
+                  <mat-label>N Locale</mat-label>
+                  <input ngModel="" type="number" name="n_locale" matInput required>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
-                  <mat-label>Cognome</mat-label>
-                  <input ngModel="" name="cognome" matInput required>
+                  <mat-label>N Sala</mat-label>
+                  <input ngModel="" type="number" name="n_sala" matInput required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Metratura</mat-label>
+                  <input ngModel="" type="number" name="metratura" matInput required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Costo</mat-label>
+                  <input ngModel="" type="number" name="costo" matInput required>
+                  <input ngModel="true" name="appartamento" hidden>
                 </mat-form-field>
                 <p>
                     <button mat-raised-button type="submit">Invio</button>
@@ -110,19 +124,23 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                  <mat-label>Costo</mat-label>
-                  <input ngModel="" name="costo" matInput required>
+                  <mat-label>Canone Mensile</mat-label>
+                  <input ngModel="" type="number" name="canone_mensile" matInput required>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Data Soggiorno</mat-label>
-                  <input matInput [matDatepicker]="picker">
+                  <input ngModel="" #date="ngModel" [(ngModel)]="item.date"
+                  (dateInput)="item.date = $event.value.format('YYYY-MM-DD')" 
+                  name="durata_soggiorno" matInput 
+                  [matDatepicker]="picker">
                   <mat-hint>DD/MM/YYYY</mat-hint>
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>N Persone</mat-label>
                   <input ngModel="" name="n_persone" matInput required>
+                  <input ngModel="true" name="contratto" hidden>
                 </mat-form-field>
                 <p>
                     <button mat-raised-button type="submit">Invio</button>

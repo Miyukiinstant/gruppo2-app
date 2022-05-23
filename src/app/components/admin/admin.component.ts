@@ -19,7 +19,6 @@ export class AdminComponent implements OnInit {
         console.log(value)
       })    
   }
-  user:string | undefined
   codice_palazzo:number[] = []
   codice_appartamento:number[] = []
   ngOnInit(): void {

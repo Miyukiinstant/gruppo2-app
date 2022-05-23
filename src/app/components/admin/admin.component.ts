@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { LoginService } from 'src/app/services/login/login.service';
 import { TableService } from 'src/app/services/post/postTable.service';
 import { TableServiceGet } from 'src/app/services/table/table.service';
 
@@ -11,7 +12,7 @@ import { TableServiceGet } from 'src/app/services/table/table.service';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private post:TableService, private tableApp:TableServiceGet) { }
+  constructor(private post:TableService, private tableApp:TableServiceGet, private login:LoginService) { }
 
   postTable(form:NgForm):void {
       console.log(form.value)
@@ -36,6 +37,10 @@ export class AdminComponent implements OnInit {
           this.codice_palazzo.push(value.codice_palazzo)
         })
       })
+  }
+
+  logout(): void{
+    this.login.logout().subscribe();
   }
 
 }

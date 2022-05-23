@@ -18,4 +18,8 @@ export class LoginService {
     return this.http.post<Login>(new Urls().urls.login,
     form.value)
   }
+
+  logout():Observable<Login>{
+    return this.http.post<Login>(new Urls().urls.login,{logout:true})
+  }
 }

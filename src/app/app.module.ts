@@ -28,6 +28,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -60,7 +62,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatDatepickerModule,
     MatMomentDateModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule
+
+    
   ],
   providers: [
     {provide:MAT_DATE_LOCALE,useValue:"it-IT"}

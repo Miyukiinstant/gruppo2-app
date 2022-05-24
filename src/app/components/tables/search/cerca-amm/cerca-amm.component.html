@@ -1,15 +1,21 @@
 <mat-card>
     <form #amm="ngForm" enctype="multipart/form-data" (ngSubmit)="cercaAmm(amm)">
-        <mat-form-field appearance="fill">
-            <mat-label>Nome</mat-label>
-            <input ngModel="" type="text" name="nome" matInput>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Cognome</mat-label>
-            <input ngModel="" type="text" name="cognome" matInput>
-            <input ngModel="true" name="cercaAmm" hidden>
-        </mat-form-field>
-        <button mat-raised-button type="submit">Cerca</button>
+        <mat-card-content>
+            <mat-form-field appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input ngModel="" type="text" name="nome" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Cognome</mat-label>
+                <input ngModel="" type="text" name="cognome" matInput>
+                <input ngModel="true" name="cercaAmm" hidden>
+            </mat-form-field>
+        </mat-card-content>
+        
+        
+        <mat-card-content>
+            <button mat-raised-button type="submit">Cerca</button>
+        </mat-card-content>
     </form>
 
             <mat-card *ngIf="array.length>0">

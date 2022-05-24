@@ -11,14 +11,15 @@ import { LoginService } from 'src/app/services/login/login.service';
 export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(private admin:LoginService,private _matSnackBar:MatSnackBar) { }
-
+  hide = true
   hideForm:boolean = false
   login(form:NgForm):void {
     this.admin.getLogin(form).subscribe(login=>{
       if(!form.value.password) return;
       this._matSnackBar.open(`Login Riuscito ✅ come ${login.user}`, undefined,{
         horizontalPosition:'center',
-        verticalPosition:'top'
+        verticalPosition:'top',
+        duration: 3000
       })
 
       this.hideForm = login.login

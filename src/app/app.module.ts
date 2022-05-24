@@ -31,6 +31,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CercaAmmComponent } from './components/tables/search/cerca-amm/cerca-amm.component';
 import { NumPalazComponent } from './components/tables/search/num-palaz/num-palaz.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -67,7 +68,8 @@ import { NumPalazComponent } from './components/tables/search/num-palaz/num-pala
     MatMomentDateModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTooltipModule
 
     
   ],

@@ -6,15 +6,15 @@
             <form enctype="multipart/form-data" #palazzo="ngForm" (ngSubmit)="postTable(palazzo)">
                 <mat-form-field appearance="fill">
                   <mat-label>N Palazzo</mat-label>
-                  <input ngModel="" type="number" name="n_palazzo" matInput required>
+                  <input ngModel="" class="example-right-align" type="number" name="n_palazzo" matInput required>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Piano</mat-label>
-                  <input ngModel="" type="number" name="piano" matInput required>
+                  <input ngModel="" class="example-right-align" type="number" name="piano" matInput required>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>N Appartamenti</mat-label>
-                  <input ngModel="" type="number" name="n_appartamenti" matInput required>
+                  <input ngModel="" class="example-right-align" type="number" name="n_appartamenti" matInput required>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Indirizzo</mat-label>
@@ -43,23 +43,25 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Codice Appartamento</mat-label>
-                  <input ngModel="" type="number" name="codice_appartamento" matInput required>
+                  <input ngModel="" class="example-right-align" type="number" name="codice_appartamento" matInput required>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>N Locale</mat-label>
-                  <input ngModel="" type="number" name="n_locale" matInput required>
+                  <input ngModel="" class="example-right-align" type="number" name="n_locale" matInput required>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>N Sala</mat-label>
-                  <input ngModel="" type="number" name="n_sala" matInput required>
+                  <input ngModel="" class="example-right-align" type="number" name="n_sala" matInput required>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Metratura</mat-label>
-                  <input ngModel="" type="number" name="metratura" matInput required>
+                  <input ngModel="" class="example-right-align" type="number" name="metratura" matInput required>
+                  <mat-icon matSuffix>home</mat-icon>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Costo</mat-label>
-                  <input ngModel="" type="number" name="costo" matInput required>
+                  <input class="example-right-align" ngModel="" type="number" name="costo" placeholder="0" matInput required>
+                  <span matPrefix>€&nbsp;</span>
                   <input ngModel="true" name="appartamento" hidden>
                 </mat-form-field>
                 <p>
@@ -126,7 +128,8 @@
 
                 <mat-form-field appearance="fill">
                   <mat-label>Canone Mensile</mat-label>
-                  <input ngModel="" type="number" name="canone_mensile" matInput required>
+                  <input ngModel="" class="example-right-align" type="number" name="canone_mensile" matInput required>
+                  <span matPrefix>€&nbsp;</span>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Data Soggiorno</mat-label>
@@ -140,7 +143,7 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>N Persone</mat-label>
-                  <input ngModel="" name="n_persone" matInput required>
+                  <input ngModel="" type="number" class="example-right-align" name="n_persone" matInput required>
                   <input ngModel="true" name="contratto" hidden>
                 </mat-form-field>
                 <p>

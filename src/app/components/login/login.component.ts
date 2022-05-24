@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.admin.getLogin(form).subscribe(login=>{
       if(!form.value.password) return;
 
-      this._matSnackBar.open(`Login Successo ✅ come ${login.user}`, undefined,{
+      this._matSnackBar.open(`Login Riuscito ✅ come ${login.user}`, undefined,{
         horizontalPosition:'center',
         verticalPosition:'top'
       })
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.admin.rescueLogin().subscribe(login=>{
       this.hideForm = login.login
       if(!login.login) return;
-      this._matSnackBar.open(`Login Successo ✅ come ${login.user}`, undefined,{
+      this._matSnackBar.open(`Login Riuscito ✅ come ${login.user}`, undefined,{
         horizontalPosition:'center',
         verticalPosition:'top'
       })

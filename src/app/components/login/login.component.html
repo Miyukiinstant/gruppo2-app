@@ -4,10 +4,8 @@
         <form enctype="multipart/form-data" #userLogin="ngForm" (ngSubmit)="login(userLogin)">
             <mat-form-field appearance="fill">
                 <mat-label>Password</mat-label>
-                <input ngModel="" name="password"  [type]="hide ? 'password' : 'text'" type="password" matInput required="true">
-                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  </button>
+                <input ngModel="" name="password"  type="password" matInput required="true">
+
             </mat-form-field>   
             <p>
                 <mat-checkbox color="primary" ngModel="" name="ricordami">Ricordami</mat-checkbox>    

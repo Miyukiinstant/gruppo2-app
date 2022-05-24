@@ -30,6 +30,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CercaAmmComponent } from './components/tables/search/cerca-amm/cerca-amm.component';
+import { NumPalazComponent } from './components/tables/search/num-palaz/num-palaz.component';
 
 
 
@@ -44,7 +45,8 @@ import { CercaAmmComponent } from './components/tables/search/cerca-amm/cerca-am
     AmministratoreComponent,
     ContrattoComponent,
     PalazzoComponent,
-    CercaAmmComponent
+    CercaAmmComponent,
+    NumPalazComponent
   ],
   imports: [
     BrowserModule,

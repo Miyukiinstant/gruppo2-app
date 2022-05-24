@@ -13,11 +13,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private admin:LoginService,private _matSnackBar:MatSnackBar) { }
 
   hideForm:boolean = false
-  hide = true;
   login(form:NgForm):void {
     this.admin.getLogin(form).subscribe(login=>{
       if(!form.value.password) return;
-
       this._matSnackBar.open(`Login Riuscito ✅ come ${login.user}`, undefined,{
         horizontalPosition:'center',
         verticalPosition:'top'

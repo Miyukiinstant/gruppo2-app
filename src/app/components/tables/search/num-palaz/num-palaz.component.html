@@ -3,7 +3,16 @@
         <mat-form-field appearance="fill">
             <mat-label>Numero piani palazzo</mat-label>
             <input ngModel="0" min="0" type="number" name="piani" matInput>
-            
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Seleziona operatore</mat-label>
+            <mat-select ngModel="" name="operator">
+                <mat-option value=">">></mat-option>
+                <mat-option value="<"><</mat-option>
+                <mat-option value="<="><=</mat-option>
+                <mat-option value=">=">>=</mat-option>
+                <mat-option value="=">=</mat-option>
+            </mat-select>            
             <input ngModel="true" name="cercaPalaz" hidden>
         </mat-form-field>
         <button mat-raised-button type="submit">Cerca</button>

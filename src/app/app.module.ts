@@ -29,6 +29,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CercaAmmComponent } from './components/tables/search/cerca-amm/cerca-amm.component';
 
 
 
@@ -42,7 +43,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AppartamentiComponent,
     AmministratoreComponent,
     ContrattoComponent,
-    PalazzoComponent
+    PalazzoComponent,
+    CercaAmmComponent
   ],
   imports: [
     BrowserModule,

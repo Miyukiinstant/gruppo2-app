@@ -32,6 +32,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CercaAmmComponent } from './components/tables/search/cerca-amm/cerca-amm.component';
 import { NumPalazComponent } from './components/tables/search/num-palaz/num-palaz.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { ClienteComponent } from './components/tables/cliente/cliente.component';
 
 
 
@@ -47,7 +48,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     ContrattoComponent,
     PalazzoComponent,
     CercaAmmComponent,
-    NumPalazComponent
+    NumPalazComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,

@@ -72,7 +72,7 @@
     </mat-card>
 </p>
 
-<p *ngIf="amministratoreList.length>0">
+<p *ngIf="appartamentoList.length>0">
     <mat-card>
         <mat-card-title>Amministratore</mat-card-title>
         <mat-card-content>
@@ -103,22 +103,51 @@
         </mat-card-content>
     </mat-card>
 </p>
+<p>
+  <mat-card>
+      <mat-card-title>Cliente</mat-card-title>
+      
+      <mat-card-content>
+          <form enctype="multipart/form-data" #cliente="ngForm" (ngSubmit)="postTable(cliente)">
+              <mat-form-field appearance="fill">
+                <mat-label>Codice Fiscale</mat-label>
+                <input ngModel="" name="CF_cliente" matInput required>
+              </mat-form-field>
 
-<p *ngIf="amministratoreList.length>0">
+              <mat-form-field appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input ngModel="" type="number" class="example-right-align" name="nome" matInput required>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Cognome</mat-label>
+                <input ngModel="" type="number" class="example-right-align" name="cognome" matInput required>
+                <input ngModel="true" name="contratto" hidden>
+              </mat-form-field>
+              <p>
+                  <button mat-raised-button type="submit">Invio</button>
+              </p>
+          </form>
+      </mat-card-content>
+  </mat-card>
+</p>
+<p *ngIf="amministratoreList.length>0 && clienteList.length>0">
     <mat-card>
         <mat-card-title>Contratto</mat-card-title>
         
         <mat-card-content>
             <form enctype="multipart/form-data" #contratto="ngForm" (ngSubmit)="postTable(contratto)">
-                <mat-form-field appearance="fill">
-                  <mat-label>Codice Fiscale</mat-label>
-                  <input ngModel="" name="CF" matInput required>
-                </mat-form-field>
                 
                 <mat-form-field appearance="fill">
                   <mat-label>Codice Appartamento</mat-label>
                   <mat-select ngModel="" name="codice_appartamento">
                     <mat-option *ngFor="let codice of codice_appartamento" [value]="codice" [textContent]="codice"></mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>CF Cliente</mat-label>
+                  <mat-select ngModel="" name="CF_cliente">
+                    <mat-option *ngFor="let cf of cf_cliente" [value]="cf" [textContent]="cf"></mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -177,5 +206,40 @@
     </mat-card>
   </mat-card>
   
+</mat-tab>
+
+<mat-tab label="Modifica">
+  <mat-card>
+    <mat-card-title>Palazzo</mat-card-title>
+    <form #editPalaz="ngForm" enctype="multipart/form-data" (ngSubmit)="editThisRow(editPalaz)">
+      <mat-form-field appearance="fill">
+        <mat-label [innerText]="selectedIndex">Codice Palazzo</mat-label>
+        <mat-select #selection (valueChange)="selectionChange(selection.value)" ngModel="" name="codice_palazzo">
+          <mat-option *ngFor="let id of palazzoList" [value]="id" [innerText]="id"></mat-option>
+        </mat-select>
+        <input type="text" ngModel="true" name="elimina" hidden>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>N Palazzo</mat-label>
+        <input ngModel="" class="example-right-align" type="number" name="n_palazzo" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Piano</mat-label>
+        <input ngModel="" class="example-right-align" type="number" name="piano" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>N Appartamenti</mat-label>
+        <input ngModel="" class="example-right-align" type="number" name="n_appartamenti" matInput required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Indirizzo</mat-label>
+        <input ngModel="" name="indirizzo" matInput required>
+        <input ngModel="true" name="palazzo" hidden>
+      </mat-form-field>
+      <mat-card-content>
+        <button type="submit" mat-raised-button>Elimina</button>
+      </mat-card-content>
+    </form>
+  </mat-card>
 </mat-tab>
 </mat-tab-group>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { TableServiceGet } from 'src/app/services/table/table.service';
 
 @Component({
@@ -10,7 +10,7 @@ export class AmministratoreComponent implements OnInit {
 
   constructor(private tables:TableServiceGet) { }
   colonne_amministratore: string[] = ['CF','codice_appartamento', 'nome', 'cognome']
-  amministratore: any
+  @Output() amministratore: any
   ngOnInit(): void {
     this.tables.getAmministratore().subscribe(amministratore=>{
       this.amministratore = amministratore

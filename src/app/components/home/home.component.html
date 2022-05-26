@@ -4,21 +4,25 @@
     </mat-tab>
     
     <mat-tab label="Appartamento">
-        <app-appartamenti></app-appartamenti>
+        <app-appartamenti #app></app-appartamenti>
     </mat-tab>
     
     <mat-tab label="Amministratore">
-        <app-amministratore></app-amministratore>
+        <app-amministratore #amm></app-amministratore>
     </mat-tab>
     
     <mat-tab label="Contratto">
         <app-contratto></app-contratto>
     </mat-tab>
+
+    <mat-tab label="Clienti">
+        <app-cliente></app-cliente>
+    </mat-tab>
     <mat-tab label="Cerca">
-        <mat-card>
+        <mat-card *ngIf="app.appartamento.length>0">
             <app-cerca-amm></app-cerca-amm>
         </mat-card>
-        <mat-card>
+        <mat-card *ngIf="amm.amministratore.length>0">
             <app-num-palaz></app-num-palaz>
         </mat-card>
     </mat-tab>

@@ -5,6 +5,7 @@ import { DeleteRowService } from 'src/app/services/delete/delete-row.service';
 import { LoginService } from 'src/app/services/login/login.service';
 import { TableService } from 'src/app/services/post/postTable.service';
 import { TableServiceGet } from 'src/app/services/table/table.service';
+import { UpdateService } from 'src/app/services/update/update.service';
 
 @Component({
   selector: 'app-admin',
@@ -14,20 +15,22 @@ import { TableServiceGet } from 'src/app/services/table/table.service';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private post:TableService, private tableApp:TableServiceGet, private login:LoginService, private _matSnackBar:MatSnackBar, private _delete:DeleteRowService) { }
+  constructor(private update:UpdateService, private post:TableService, private tableApp:TableServiceGet, private login:LoginService, private _matSnackBar:MatSnackBar, private _delete:DeleteRowService) { }
   arrayOptions:any
   palazzoList:any
   appartamentoList:any
   amministratoreList:any
   contrattoList:any
+  clienteList:any
   selectedIndex:string = ''
   item = {
     date:Date
   }
-  tipiIm = ['Palazzo','Appartamento','Amministratore','Contratto']
+  tipiIm = ['Palazzo','Appartamento','Amministratore','Contratto', 'Cliente']
   selected: Date | undefined
   codice_palazzo:number[] = []
   codice_appartamento:number[] = []
+  cf_cliente:string[] = []
   ngOnInit(): void {
     this.tableApp.getPalazzo().subscribe(app=>{
       app.map(value=>{
@@ -38,6 +41,11 @@ export class AdminComponent implements OnInit {
         app.map(value=>{
           this.codice_appartamento.push(value.codice_appartamento)
         })
+    })
+    this.tableApp.getCliente().subscribe(cliente=>{
+      cliente.map(value=>{
+        this.cf_cliente.push(value.CF_cliente)
+      })
     })
     this.fillSelectOptions()
   }
@@ -61,6 +69,7 @@ export class AdminComponent implements OnInit {
     this.appartamentoList = []
     this.amministratoreList = []
     this.contrattoList = []
+    this.clienteList = []
     this.tableApp.getPalazzo().subscribe(app=>{
       app.map(value=>{
         this.palazzoList.push(value.codice_palazzo)
@@ -79,6 +88,11 @@ export class AdminComponent implements OnInit {
     this.tableApp.getContratto().subscribe(contrat=>{
       contrat.map(value=>{
         this.contrattoList.push(value.CF)
+      })
+    })
+    this.tableApp.getCliente().subscribe(cliente=>{
+      cliente.map(value=>{
+        this.clienteList.push(value.CF_cliente)
       })
     })
   }
@@ -113,7 +127,26 @@ export class AdminComponent implements OnInit {
       case 'contratto':
         this.arrayOptions = this.contrattoList
         break;
+      case 'cliente':
+        this.arrayOptions = this.clienteList
+        break;
     }
+  }
+  editThisRow(form:NgForm):void{
+    this.update.updateRow(form).subscribe(result=>{
+      if(!result.succesful){
+        this._matSnackBar.open('Update fallito ❌',undefined,
+        {horizontalPosition:'center',
+        verticalPosition:'top',
+        duration:2000},)
+        this.fillSelectOptions()
+      }
+      this._matSnackBar.open('Update riuscito ✅',undefined,
+        {horizontalPosition:'center',
+        verticalPosition:'top',
+        duration:2000},)
+        this.fillSelectOptions()
+    })
   }
 
 }

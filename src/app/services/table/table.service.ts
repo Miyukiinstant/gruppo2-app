@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Amministratore } from 'src/app/interfaces/amministratore';
 import { Appartamento } from 'src/app/interfaces/appartamento';
+import { Cliente } from 'src/app/interfaces/cliente';
 import { Contratto } from 'src/app/interfaces/contratto';
 import { Palazzo } from 'src/app/interfaces/palazzo';
 import { Urls } from 'src/app/interfaces/urls';
@@ -26,5 +27,8 @@ export class TableServiceGet {
   }
   getContratto(): Observable<Contratto[]>{
     return this.http.get<Contratto[]>(new Urls().urls.get+'?tipo=contratto')
+  }
+  getCliente(): Observable<Cliente[]>{
+    return this.http.get<Cliente[]>(new Urls().urls.get+'?tipo=cliente')
   }
 }

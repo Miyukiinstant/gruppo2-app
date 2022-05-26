@@ -38,9 +38,7 @@
                 <mat-form-field appearance="fill">
                   <mat-label>Codice Palazzo</mat-label>
                   <mat-select ngModel="" name="codice_palazzo">
-                    <mat-option *ngFor="let codice of codice_palazzo" [value]="codice">
-                      {{codice}}
-                    </mat-option>
+                    <mat-option *ngFor="let codice of codice_palazzo" [value]="codice" [textContent]="codice"></mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
@@ -86,9 +84,7 @@
                 <mat-form-field appearance="fill">
                   <mat-label>Codice Appartamento</mat-label>
                   <mat-select ngModel="" name="codice_appartamento">
-                    <mat-option *ngFor="let codice of codice_appartamento" [value]="codice">
-                      {{codice}}
-                    </mat-option>
+                    <mat-option *ngFor="let codice of codice_appartamento" [value]="codice" [textContent]="codice"></mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
@@ -122,9 +118,7 @@
                 <mat-form-field appearance="fill">
                   <mat-label>Codice Appartamento</mat-label>
                   <mat-select ngModel="" name="codice_appartamento">
-                    <mat-option *ngFor="let codice of codice_appartamento" [value]="codice">
-                      {{codice}}
-                    </mat-option>
+                    <mat-option *ngFor="let codice of codice_appartamento" [value]="codice" [textContent]="codice"></mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -165,7 +159,7 @@
           <mat-form-field appearance="fill">
             <mat-label>Tipo</mat-label>
             <mat-select #selection (valueChange)="selectionChange(selection.value)" ngModel="" name="tipoIm">
-              <mat-option *ngFor="let tipo of tipiIm" [value]="tipo.toLowerCase()">{{tipo}}</mat-option>
+              <mat-option *ngFor="let tipo of tipiIm" [value]="tipo.toLowerCase()" [textContent]="tipo"></mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field appearance="fill">

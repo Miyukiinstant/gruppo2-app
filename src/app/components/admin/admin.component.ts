@@ -84,13 +84,18 @@ export class AdminComponent implements OnInit {
   }
   postTable(form:NgForm):void {
     this.post.postForm(form).subscribe(value=>{
-      if(value.succesful){
-        this._matSnackBar.open('Inviato con successo ✅',undefined,
+      if(!value.succesful){
+        this._matSnackBar.open('Invio fallito ❌',undefined,
         {horizontalPosition:'center',
         verticalPosition:'top',
         duration:2000},)
         this.fillSelectOptions()
       }
+      this._matSnackBar.open('Inviato con successo ✅',undefined,
+        {horizontalPosition:'center',
+        verticalPosition:'top',
+        duration:2000},)
+        this.fillSelectOptions()
     })   
   }
   selectionChange(value:string):void{

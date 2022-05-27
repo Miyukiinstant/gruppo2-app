@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Amministratore } from 'src/app/interfaces/amministratore';
 import { Appartamento } from 'src/app/interfaces/appartamento';

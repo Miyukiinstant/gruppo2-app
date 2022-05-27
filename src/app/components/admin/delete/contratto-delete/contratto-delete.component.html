@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-title>Contratto</mat-card-title>
+    <mat-card-content>
+        <mat-card>
+            <table mat-table [dataSource]="contratto">
+                <ng-container matColumnDef="CF">
+                    <th mat-header-cell *matHeaderCellDef>Codice Fiscale</th>
+                    <td mat-cell *matCellDef="let element" [textContent]="element.CF"></td>
+                </ng-container>
+                <ng-container matColumnDef="codice_appartamento">
+                    <th mat-header-cell *matHeaderCellDef>Codice Appartamento</th>
+                    <td mat-cell *matCellDef="let element" [textContent]="element.codice_appartamento"></td>
+                </ng-container>
+                <ng-container matColumnDef="canone_mensile">
+                    <th mat-header-cell *matHeaderCellDef>Canone Mensile</th>
+                    <td mat-cell *matCellDef="let element" [textContent]="'€ ' + element.canone_mensile"></td>
+                </ng-container>
+                <ng-container matColumnDef="durata_soggiorno">
+                    <th mat-header-cell *matHeaderCellDef>Durata Soggiorno</th>
+                    <td mat-cell *matCellDef="let element" [textContent]="element.durata_soggiorno | date:'dd-MM-yyyy'"></td>
+                </ng-container>
+                <ng-container matColumnDef="n_persone">
+                    <th mat-header-cell *matHeaderCellDef>N Persone</th>
+                    <td mat-cell *matCellDef="let element" [textContent]="element.n_persone"></td>
+                </ng-container>
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element">
+                        <form enctype="multipart/form-data" #delContratto="ngForm" (ngSubmit)="delete(delContratto)">
+                            <input [ngModel]="element.CF" name="id" hidden>
+                            <input ngModel="contratto" name="tipoIm" hidden>
+                            <input [ngModel]="true" name="elimina" hidden>
+                            <button type="submit" mat-raised-button>Elimina</button>
+                        </form>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="colonne_contratto"></tr>
+                <tr mat-row *matRowDef="let row; columns: colonne_contratto;"></tr>
+            </table>
+        </mat-card>
+    </mat-card-content>
+</mat-card>

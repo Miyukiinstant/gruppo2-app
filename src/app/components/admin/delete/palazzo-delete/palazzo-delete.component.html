@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-title>Palazzo</mat-card-title>
+    <mat-card-content>
+        <mat-card>
+            <table mat-table [dataSource]="palazzo">
+                <ng-container matColumnDef="codice_palazzo">
+                    <th mat-header-cell *matHeaderCellDef>Codice Palazzo</th>
+                    <td mat-cell *matCellDef="let element" [textContent]="element.codice_palazzo"></td>
+                </ng-container>
+                <ng-container matColumnDef="n_palazzo">
+                    <th mat-header-cell *matHeaderCellDef>N Palazzo</th>
+                    <td mat-cell *matCellDef="let element" [textContent]="element.n_palazzo"></td>
+                </ng-container>
+                <ng-container matColumnDef="piano">
+                    <th mat-header-cell *matHeaderCellDef>Piano</th>
+                    <td mat-cell *matCellDef="let element" [textContent]="element.piano"></td>
+                </ng-container>
+                <ng-container matColumnDef="n_appartamenti">
+                    <th mat-header-cell *matHeaderCellDef>N Appartamenti</th>
+                    <td mat-cell *matCellDef="let element" [textContent]="element.n_appartamenti"></td>
+                </ng-container>
+                <ng-container matColumnDef="indirizzo">
+                    <th mat-header-cell *matHeaderCellDef>Indirizzo</th>
+                    <td mat-cell *matCellDef="let element" [textContent]="element.indirizzo"></td>
+                </ng-container>
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element">
+                        <form enctype="multipart/form-data" #delPalaz="ngForm" (ngSubmit)="delete(delPalaz)">
+                            <input [ngModel]="element.codice_palazzo" name="id" hidden>
+                            <input ngModel="palazzo" name="tipoIm" hidden>
+                            <input [ngModel]="true" name="elimina" hidden>
+                            <button type="submit" mat-raised-button>Elimina</button>
+                        </form>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="colonne_palazzo"></tr>
+                <tr mat-row *matRowDef="let row; columns: colonne_palazzo;"></tr>
+            </table>
+        </mat-card>
+    </mat-card-content>
+</mat-card>

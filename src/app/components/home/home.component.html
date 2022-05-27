@@ -19,10 +19,10 @@
         <app-cliente></app-cliente>
     </mat-tab>
     <mat-tab label="Cerca">
-        <mat-card *ngIf="app.appartamento.length>0">
+        <mat-card *ngIf="app.appartamento !== undefined">
             <app-cerca-amm></app-cerca-amm>
         </mat-card>
-        <mat-card *ngIf="amm.amministratore.length>0">
+        <mat-card *ngIf="amm.amministratore !== undefined">
             <app-num-palaz></app-num-palaz>
         </mat-card>
     </mat-tab>

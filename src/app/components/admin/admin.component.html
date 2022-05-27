@@ -116,12 +116,12 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>Nome</mat-label>
-                <input ngModel="" type="number" class="example-right-align" name="nome" matInput required>
+                <input ngModel="" type="text" class="example-right-align" name="nome" matInput required>
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Cognome</mat-label>
-                <input ngModel="" type="number" class="example-right-align" name="cognome" matInput required>
-                <input ngModel="true" name="contratto" hidden>
+                <input ngModel="" type="text" class="example-right-align" name="cognome" matInput required>
+                <input ngModel="true" name="cliente" hidden>
               </mat-form-field>
               <p>
                   <button mat-raised-button type="submit">Invio</button>
@@ -179,42 +179,14 @@
     </mat-card>
 </p>
 </mat-tab>
-<mat-tab label="Eliminazione">
-  <mat-card>
-    <mat-card>
-      <mat-card-title>Eliminazione</mat-card-title>
-      <mat-card-content>
-        <form #deleteRow="ngForm" enctype="multipart/form-data" (ngSubmit)="deleteThisRow(deleteRow)">
-          <mat-form-field appearance="fill">
-            <mat-label>Tipo</mat-label>
-            <mat-select #selection (valueChange)="selectionChange(selection.value)" ngModel="" name="tipoIm">
-              <mat-option *ngFor="let tipo of tipiIm" [value]="tipo.toLowerCase()" [textContent]="tipo"></mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label [innerText]="selectedIndex"></mat-label>
-            <mat-select ngModel="" name="id">
-              <mat-option *ngFor="let id of arrayOptions" [value]="id" [innerText]="id"></mat-option>
-            </mat-select>
-            <input type="text" ngModel="true" name="elimina" hidden>
-          </mat-form-field>
-          <mat-card-content>
-            <button type="submit" mat-raised-button>Elimina</button>
-          </mat-card-content>
-        </form>
-      </mat-card-content>
-    </mat-card>
-  </mat-card>
-  
-</mat-tab>
 
 <mat-tab label="Modifica">
   <mat-card>
     <mat-card-title>Palazzo</mat-card-title>
     <form #editPalaz="ngForm" enctype="multipart/form-data" (ngSubmit)="editThisRow(editPalaz)">
       <mat-form-field appearance="fill">
-        <mat-label [innerText]="selectedIndex">Codice Palazzo</mat-label>
-        <mat-select #selection (valueChange)="selectionChange(selection.value)" ngModel="" name="codice_palazzo">
+        <mat-label>Codice Palazzo</mat-label>
+        <mat-select ngModel="" name="codice_palazzo">
           <mat-option *ngFor="let id of palazzoList" [value]="id" [innerText]="id"></mat-option>
         </mat-select>
         <input type="text" ngModel="true" name="elimina" hidden>
@@ -237,9 +209,29 @@
         <input ngModel="true" name="palazzo" hidden>
       </mat-form-field>
       <mat-card-content>
-        <button type="submit" mat-raised-button>Elimina</button>
+        <button type="submit" mat-raised-button>Modifica</button>
       </mat-card-content>
     </form>
   </mat-card>
+</mat-tab>
+<mat-tab label="Eliminazione">
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Palazzo">
+      <app-palazzo-delete></app-palazzo-delete>
+    </mat-tab>
+    <mat-tab label="Appartamento">
+      <app-appartamento-delete></app-appartamento-delete>
+    </mat-tab>
+    <mat-tab label="Amministratore">
+      <app-amministratore-delete></app-amministratore-delete>
+    </mat-tab>
+    <mat-tab label="Contratto">
+      <app-contratto-delete></app-contratto-delete>
+    </mat-tab>
+    <mat-tab label="Cliente">
+      <app-cliente-delete></app-cliente-delete>
+    </mat-tab>
+  </mat-tab-group>
+ 
 </mat-tab>
 </mat-tab-group>

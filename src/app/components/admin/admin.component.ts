@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeleteRowService } from 'src/app/services/delete/delete-row.service';
@@ -22,7 +22,6 @@ export class AdminComponent implements OnInit {
   amministratoreList:any
   contrattoList:any
   clienteList:any
-  selectedIndex:string = ''
   item = {
     date:Date
   }
@@ -31,22 +30,7 @@ export class AdminComponent implements OnInit {
   codice_palazzo:number[] = []
   codice_appartamento:number[] = []
   cf_cliente:string[] = []
-  ngOnInit(): void {
-    this.tableApp.getPalazzo().subscribe(app=>{
-      app.map(value=>{
-        this.codice_palazzo.push(value.codice_palazzo)
-      })
-    })  
-    this.tableApp.getAppartamenti().subscribe(app=>{
-        app.map(value=>{
-          this.codice_appartamento.push(value.codice_appartamento)
-        })
-    })
-    this.tableApp.getCliente().subscribe(cliente=>{
-      cliente.map(value=>{
-        this.cf_cliente.push(value.CF_cliente)
-      })
-    })
+  ngOnInit(): void { 
     this.fillSelectOptions()
   }
 
@@ -70,6 +54,24 @@ export class AdminComponent implements OnInit {
     this.amministratoreList = []
     this.contrattoList = []
     this.clienteList = []
+    this.codice_palazzo = []
+    this.codice_appartamento = []
+    this.cf_cliente = []
+    this.tableApp.getCliente().subscribe(cliente=>{
+      cliente.map(value=>{
+        this.cf_cliente.push(value.CF_cliente)
+      })
+    })
+    this.tableApp.getAppartamenti().subscribe(app=>{
+      app.map(value=>{
+        this.codice_appartamento.push(value.codice_appartamento)
+      })
+    })
+    this.tableApp.getPalazzo().subscribe(app=>{
+      app.map(value=>{
+        this.codice_palazzo.push(value.codice_palazzo)
+      })
+    }) 
     this.tableApp.getPalazzo().subscribe(app=>{
       app.map(value=>{
         this.palazzoList.push(value.codice_palazzo)
@@ -97,6 +99,7 @@ export class AdminComponent implements OnInit {
     })
   }
   postTable(form:NgForm):void {
+    console.log(form.value)
     this.post.postForm(form).subscribe(value=>{
       if(!value.succesful){
         this._matSnackBar.open('Invio fallito ❌',undefined,
@@ -112,26 +115,7 @@ export class AdminComponent implements OnInit {
         this.fillSelectOptions()
     })   
   }
-  selectionChange(value:string):void{
-    this.selectedIndex = value
-    switch (value) {
-      case 'palazzo':
-        this.arrayOptions = this.palazzoList
-        break;
-      case 'appartamento':
-        this.arrayOptions = this.appartamentoList
-        break;
-      case 'amministratore':
-        this.arrayOptions = this.amministratoreList
-        break;
-      case 'contratto':
-        this.arrayOptions = this.contrattoList
-        break;
-      case 'cliente':
-        this.arrayOptions = this.clienteList
-        break;
-    }
-  }
+
   editThisRow(form:NgForm):void{
     this.update.updateRow(form).subscribe(result=>{
       if(!result.succesful){
@@ -140,6 +124,7 @@ export class AdminComponent implements OnInit {
         verticalPosition:'top',
         duration:2000},)
         this.fillSelectOptions()
+        
       }
       this._matSnackBar.open('Update riuscito ✅',undefined,
         {horizontalPosition:'center',

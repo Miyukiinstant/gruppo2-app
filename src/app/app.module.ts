@@ -33,7 +33,11 @@ import { CercaAmmComponent } from './components/tables/search/cerca-amm/cerca-am
 import { NumPalazComponent } from './components/tables/search/num-palaz/num-palaz.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ClienteComponent } from './components/tables/cliente/cliente.component';
-
+import { PalazzoDeleteComponent } from './components/admin/delete/palazzo-delete/palazzo-delete.component';
+import { ClienteDeleteComponent } from './components/admin/delete/cliente-delete/cliente-delete.component';
+import { AppartamentoDeleteComponent } from './components/admin/delete/appartamento-delete/appartamento-delete.component';
+import { ContrattoDeleteComponent } from './components/admin/delete/contratto-delete/contratto-delete.component';
+import { AmministratoreDeleteComponent } from './components/admin/delete/amministratore-delete/amministratore-delete.component';
 
 
 
@@ -49,7 +53,12 @@ import { ClienteComponent } from './components/tables/cliente/cliente.component'
     PalazzoComponent,
     CercaAmmComponent,
     NumPalazComponent,
-    ClienteComponent
+    ClienteComponent,
+    PalazzoDeleteComponent,
+    ClienteDeleteComponent,
+    AppartamentoDeleteComponent,
+    ContrattoDeleteComponent,
+    AmministratoreDeleteComponent
   ],
   imports: [
     BrowserModule,

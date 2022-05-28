@@ -22,6 +22,7 @@ export class AdminComponent implements OnInit {
   amministratoreList:any
   contrattoList:any
   clienteList:any
+  deleteGroup:boolean = true
   item = {
     date:Date
   }

@@ -21,7 +21,13 @@ export class ClienteDeleteComponent implements OnInit {
         {horizontalPosition:'center',
         verticalPosition:'top'
       ,duration: 2000})
+      this.ngOnInit()
+      return
       }
+      this._matSnackBar.open('Eliminazione fallita ❌',undefined,
+        {horizontalPosition:'center',
+        verticalPosition:'top'
+      ,duration: 2000})
     })
   }
   ngOnInit(): void {

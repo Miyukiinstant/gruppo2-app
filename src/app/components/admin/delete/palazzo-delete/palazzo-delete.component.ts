@@ -13,7 +13,7 @@ export class PalazzoDeleteComponent implements OnInit {
 
   constructor(private tables:TableServiceGet,private _delete:DeleteRowService,  private _matSnackBar:MatSnackBar) { }
   colonne_palazzo: string[] = ['codice_palazzo','n_palazzo', 'piano', 'n_appartamenti', 'indirizzo', 'id']
-  @Input() palazzo:any
+  @Output() palazzo:any
   delete(form:NgForm):void{
     this._delete.deleteRow(form).subscribe(result=>{
       if(result.succesful){
@@ -21,11 +21,19 @@ export class PalazzoDeleteComponent implements OnInit {
         {horizontalPosition:'center',
         verticalPosition:'top'
       ,duration: 2000})
+      this.ngOnInit()
+      return
       }
+      this._matSnackBar.open('Eliminazione fallita ❌',undefined,
+        {horizontalPosition:'center',
+        verticalPosition:'top'
+      ,duration: 2000})
     })
   }
   ngOnInit(): void {
-    
+    this.tables.getPalazzo().subscribe(palazzo=>{
+      this.palazzo = palazzo
+    })
   }
 
 }

@@ -214,7 +214,7 @@
     </form>
   </mat-card>
 </mat-tab>
-<mat-tab label="Eliminazione">
+<mat-tab label="Eliminazione" *ngIf="palazzoList.length>0">
   <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Palazzo">
       <app-palazzo-delete></app-palazzo-delete>
